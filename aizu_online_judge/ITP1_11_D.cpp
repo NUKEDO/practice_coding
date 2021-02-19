@@ -1,4 +1,4 @@
-// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_C&lang=ja
+// http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_11_D&lang=ja
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,6 +8,11 @@ struct Dice {
   int save;
   
   void set(vector<int> num) {
+    if (number.size() > 0) {
+      for(int i = 0; i < 6; i++) {
+        number.pop_back();
+      }
+    }
     for (int i = 0; i < 6; i++) {
       number.push_back(num.at(i));
     }
@@ -101,62 +106,82 @@ struct Dice {
 
 
 int main() {
-  string direction;
-  vector<int> num(6);
-  for (int i = 0; i < 6; i++) {
-    cin >> num.at(i);
+  int n;
+  cin >> n;
+  vector<vector<int>> all_num(n, vector<int>(6));
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < 6; j++) {
+      cin >> all_num.at(i).at(j);
+    }
   }
   
-  Dice dice;
-  dice.set(num);
-  
-  vector<int> default_num(6);
-  for (int i = 0; i < 6; i++) {
-    cin >> default_num.at(i);
-  }
-  
-  Dice another_dice;
-  another_dice.set(default_num);
-  
+  Dice dice, another_dice;
+  vector<int> num(6), another_num(6);
   int x, y, z;
   string ans;
   vector<string> turn = {"", "N", "NW", "NE", "S", "NN"};
-  if( another_dice.same_number(dice) ) {
-    for (int i = 0; i < 6; i++) {
-      //一番上を変える
-      if (i != 0){
-        another_dice.roll(turn.at(i));
+
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = i + 1; j < n; j++) {
+      for (int k = 0; k < 6; k++) {
+        num.at(k) = all_num.at(i).at(k);
+        another_num.at(k) = all_num.at(j).at(k);
       }
       
-      x = dice.key(1);
-      y = another_dice.key(1);
+      dice.set(num);
+      another_dice.set(another_num);
       
-      ans = another_dice.same_check(dice);
-      if( ans == "Yes" ){
-        break;
-      }
+      ans = "No";      
+      if( another_dice.same_number(dice) ) {
+        for (int k = 0; k < 6; k++) {
+          if (k != 0){
+            another_dice.roll(turn.at(k));
+          }
+
+          ans = another_dice.same_check(dice);
+          if( ans == "Yes" ){
+            break;
+          }
       
-      //正面比較
-      z = 0;
-      while (z < 3) {
-        another_dice.spin();
+          x = dice.key(1);
+          y = another_dice.key(1);
+      
+          z = 0;
+          while (z < 3) {
+            another_dice.spin();
         
-        ans = another_dice.same_check(dice);
-        if( ans == "Yes" ){
-          break;
+            ans = another_dice.same_check(dice);
+            if(ans == "Yes") {
+              break;
+            }
+        
+            z++;
+          }
+          if(ans == "Yes") {
+            break;
+          }
+      
+          another_dice.set(another_num);
+      
         }
-        
-        z++;
+        if(ans == "Yes") {
+            break;
+        }
       }
-      if( ans == "Yes" ){
-        break;
+      if(ans == "Yes") {
+            break;
       }
-      
-      for(int j = 0; j < 6; j++) {
-        another_dice.number.at(j) = default_num.at(j);
-      }
-      
+    }
+    if (ans == "Yes") {
+      break;
     }
   }
-  cout << ans << endl;
+  
+  string diffe_ans;
+  if (ans == "Yes") {
+    diffe_ans = "No";
+  } else {
+    diffe_ans ="Yes";
+  }
+  cout << diffe_ans << endl;
 }
