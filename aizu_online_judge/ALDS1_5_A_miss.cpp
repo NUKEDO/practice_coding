@@ -8,7 +8,7 @@ void makeNum(vector<int> A, int m) {
   string ans = "no";
   int n = A.size(), sum;
   for(int tmp = 0; tmp < (1 << n); tmp++) { // (1 << n)は2のn乗を意味する
-    bitset<20> bit(tmp); // 0 ~ 2のn乗-1までの2進数を作成
+    bitset<20> bit(tmp); // 0 ~ 2のn乗-1 までの2進数を作成　(bitset<n>はできないので必要最大数で作成)
     sum = 0;
     for(int i = 0; i < n; i++) {
       if(bit.test(i)) {
