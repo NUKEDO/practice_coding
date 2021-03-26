@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/abc189/tasks/abc188_c
+// https://atcoder.jp/contests/abc188/tasks/abc188_c
 
 #include <bits/stdc++.h>
 using namespace std;
