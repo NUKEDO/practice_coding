@@ -17,7 +17,7 @@ void insert(int k) {
   Node *z;
   
   z = (Node *)malloc(sizeof(Node)); // sizeof(型名) 型のバイト単位の大きさ
-  // メモリ確保　変数=(型名 *)malloc(確保量)  free(変数)でメモリ解放
+  // メモリ確保 変数=(型名 *)malloc(確保量)  free(変数)でメモリ解放
   z->key = k;
   z->left = NIL;
   z->right = NIL;
