@@ -18,8 +18,8 @@ void insert(int k) {
   Node *z; // これから作成するNode
   
   z = (Node *)malloc(sizeof(Node)); // sizeof(型名) 型のバイト単位の大きさ
-  // メモリ確保　変数=(型名 *)malloc(確保量)  free(変数)でメモリ解放
-  // z = new 型[確保量]　の書き方の方がベター (確保量が１個分なら[]は不要)
+  // メモリ確保 変数=(型名 *)malloc(確保量)  free(変数)でメモリ解放
+  // z = new 型[確保量] の書き方の方がベター (確保量が１個分なら[]は不要)
   // z = new Node; // newを使った場合はdeleteでメモリ解放
   // delete[] z; []は確保量を指定していないなら不要
   z->key = k;
@@ -66,7 +66,7 @@ Node * treeMinimum(Node *x) {
   return x;
 }
 
-Node * find(Node *u, int k) { //　「Node *find」と書いてもいいが、変数と見間違えるので書き分けている
+Node * find(Node *u, int k) { // 「Node *find」と書いてもいいが、変数と見間違えるので書き分けている
   while(u != NIL && k != u->key) {
     if(k < u->key) u = u->left;
     else u = u->right;
