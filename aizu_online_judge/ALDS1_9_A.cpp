@@ -8,7 +8,6 @@ int parent(int i) {return i / 2;}
 int left(int i) {return i * 2;}
 int right(int i) {return i * 2 + 1;}
 
-
 int main() {
   int n, num;
   scanf("%d\n", &n);
