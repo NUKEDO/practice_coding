@@ -23,7 +23,6 @@ void dfs_visit(vector<vector<int> > g, int u) {
 }
 
 void dfs(vector<vector<int> > g) {
-  stack<int> save;
   count_time = 0;
   for(int i = 1; i <= n; i++) {
     if(color.at(i) == WHITE) dfs_visit(g, i);
