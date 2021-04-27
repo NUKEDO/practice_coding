@@ -8,9 +8,9 @@ using namespace std;
 #define BLACK -3
 
 int n;
-vector<vector<int> > g(100 + 1, vector<int>(100 + 1, -1));
-vector<int> color(100 + 1, WHITE);
-vector<int> d(100 + 1, INT_MAX); //distance
+vector<vector<int> > g(100 + 1, vector<int>(100, -1));
+vector<int> color(100, WHITE);
+vector<int> d(100, INT_MAX); //distance
 
 void dijkstra(int u) { //ダイクストラのアルゴリズム
   color.at(u) = BLACK;
