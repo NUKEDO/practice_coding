@@ -10,7 +10,7 @@ int checkSame() {
       for(int j = 0; j < p_size; j++) {
         int k = (i + j >= s_size) ? (i + j - s_size) : (i + j);
         if(s.at(k) != p.at(j)) break;
-        
+
         if(j == p_size - 1) return 1; //全部一致
       }
     }
