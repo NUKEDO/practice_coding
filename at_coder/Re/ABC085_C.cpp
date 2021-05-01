@@ -10,7 +10,7 @@ int main() {
     int max_a = money / 10000, max_b = money / 5000;
     int check = 0;
     for(int i = 0; i <= max_a; i++) {
-      for(int j = 0; j <= max_b; j++) {
+      for(int j = 0; j <= max_b - i; j++) {
         int k = (money - 10000 * i - 5000 * j) / 1000;
         if(k < 0) continue;
         if(i + j + k == num) {
