@@ -3,7 +3,7 @@ using namespace std;
 #define MAX 100000
 
 int n, m, l, u, a;
-vector<int> num(MAX), add(MAX + 1); //いもす法
+vector<int> num(MAX), add(MAX + 1, 0); //いもす法
 
 void printVec(vector<int> v) {
   for(int i = 0; i < n; i++) {
