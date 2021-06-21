@@ -1,6 +1,9 @@
 // https://twitter.com/kyopro_dekomor2/status/1406890339886006275?s=20
 // https://kenkoooo.com/atcoder/#/contest/show/a7a90ea6-4e26-4aaa-bcba-eb6322a6ce22
 
+// 全く同じコードで↓も解ける
+// https://atcoder.jp/contests/abc040/tasks/abc040_c
+
 #include <bits/stdc++.h>
 using namespace std;
  
